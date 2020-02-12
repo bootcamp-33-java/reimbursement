@@ -40,15 +40,19 @@ public class Account implements Serializable {
     @Basic(optional = false)
     @Column(name = "ID")
     private BigDecimal id;
+    
     @Basic(optional = false)
     @Column(name = "PASSWORD")
     private String password;
+    
     @Basic(optional = false)
     @Column(name = "TOKEN")
     private String token;
+    
     @Basic(optional = false)
     @Column(name = "IS_VERIFY")
     private BigDecimal isVerify;
+    
     @JoinColumn(name = "ID", referencedColumnName = "ID", insertable = false, updatable = false)
     @OneToOne(optional = false, fetch = FetchType.LAZY)
     private Employee employee;
