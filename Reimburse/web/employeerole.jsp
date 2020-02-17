@@ -36,9 +36,11 @@
 
 
 
-    <body class="grey lighten-3">        
+    <body class="grey lighten-3">  
+        
         <header>
             <%@include file="/newDashboard/header.jsp" %>
+            
         </header>
         <br>
         <br>
@@ -80,17 +82,13 @@
                         <td>
                             <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#updateModal<%
                                 out.print(r.getId());
-                                out.print(r.getEmployee().getId());
-                                out.print(r.getRole().getName());
 
                                     %>"><i class="fas fa-edit"></i></button>
                             <a href="employeerole?action=delete&id=<%=r.getId()%>" ><button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button></a>
 
-                            <form action="role" method="POST">
+                            <form action="employerole" method="POST">
                                 <div class="modal fade" id="updateModal<%
                                     out.print(r.getId());
-                                    out.print(r.getEmployee().getId());
-                                    out.print(r.getRole().getName());
 
                                      %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
@@ -110,16 +108,33 @@
                                                             <th><input type="text" readonly="" name="id" value="<% out.print(r.getId()); %>" /></th>
                                                         </tr>
                                                     </thead>
+                                                    
                                                     <tbody>
                                                         <tr>
                                                             <td>EMPLOYEE NIK</td>
-                                                            <td><input type="text" name="employeeRoleId" value="<% out.print(r.getEmployee().getId()); %>" /></td>
+                                                            <td>
+                                                                <select name="employeeRoleId" class="select2_single form-control">
+                                                                    <option selected value="<% out.print(r.getEmployee().getId());%>" disabled selected>Select your NIK</option>
+                                                                    <% for (Employee er : emp) {%>
+                                                                    <option value="<%=er.getId()%>"><%=er.getId()%></option>
+                                                                    <% }%>
+                                                                    
+                                                                
+                                                                </select>
+                                                            </td>
                                                         </tr>
                                                     </tbody>
                                                     <tbody>
                                                         <tr>
                                                             <td>ROLE NAME</td>
-                                                            <td><input type="text" name="employeeRoleName" value="<% out.print(r.getRole().getName()); %>" /></td>
+                                                            <td>
+                                                                <select name="employeeRoleName" class="select2_single form-control">
+                                                                    <option selected value="<%r.getRole().getId();%>" disabled selected>Select your ROLE</option>
+                                                                    <% for (Role er : rol) {%>
+                                                                    <option value="<%=er.getId()%>"><%=er.getId() %></option>
+                                                                    <% }%>
+                                                                </select>
+                                                            </td>
                                                         </tr>
 
                                                     </tbody>
@@ -163,7 +178,7 @@
                                                         <tr>
                                                             <td>ROLE NAME</td>
                                                             <td>
-                                                                <select name="employeeroleId" class="select2_single form-control">
+                                                                <select name="employeeRoleName" class="select2_single form-control">
                                                                     <option value="" disabled selected>Select your ROLE</option>
                                                                     <% for (Role er : rol) {%>
                                                                     <option value="<%=er.getId()%>"><%=er.getId() %></option>
@@ -177,7 +192,7 @@
                                                         <tr>
                                                             <td>EMPLOYEE NIK</td>
                                                             <td>
-                                                                <select name="employeeroleName" class="select2_single form-control">
+                                                                <select name="employeeRoleId" class="select2_single form-control">
                                                                     <option value="" disabled selected>Select your NIK</option>
                                                                     <% for (Employee er : emp) {%>
                                                                     <option value="<%=er.getId()%>"><%=er.getId()%></option>
@@ -217,6 +232,9 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
         <!-- script sidebar -->
+        
+        
+        
 
         <script type="text/javascript">
             $(document).ready(function () {

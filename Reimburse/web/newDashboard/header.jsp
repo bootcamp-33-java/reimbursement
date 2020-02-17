@@ -10,7 +10,7 @@
 
 
     <!-- Navbar -->
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light peach-gradient-rgba scrolling-navbar">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light purple-gradient-rgba scrolling-navbar">
         <div class="container-fluid">
 
             <!-- Collapse -->
@@ -58,7 +58,7 @@
     <!-- Navbar -->
 
     <!-- Sidebar -->
-    <div class="sidebar-fixed peach-gradient-rgba position-fixed">
+    <div class="sidebar-fixed purple-gradient-rgba position-fixed">
 
         <a class="logo-wrapper waves-effect">
             <img src="dist/iniParking.png"  class="img-fluid" style="width:100%;height:100%" alt="">
@@ -70,8 +70,8 @@
             </a>
             <a href="http://localhost:8084/Reimburse/role" class="list-group-item list-group-item-action waves-effect">
                 <i class="fa fa-user mr-3"></i>Role</a>
-            <a href="#" class="list-group-item list-group-item-action waves-effect">
-                <i class="fa fa-table mr-3"></i>Tables</a>
+            <a href="http://localhost:8084/Reimburse/employeerole" class="list-group-item list-group-item-action waves-effect">
+                <i class="fa fa-table mr-3"></i>Employee Role</a>
             <a href="#" class="list-group-item list-group-item-action waves-effect">
                 <i class="fa fa-map mr-3"></i>Maps</a>
             <a href="#" class="list-group-item list-group-item-action waves-effect">
